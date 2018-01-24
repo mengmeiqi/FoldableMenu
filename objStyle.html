@@ -3,8 +3,81 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>折叠菜单_obj.style.属性</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        li{
+            list-style:none;
+        }
+        #folding{
+            margin:100px auto;
+            height:248px;
+            width:200px;
+        }
+        h3{
+            width:198px;
+            height:30px;
+            border:1px solid #000;
+            text-align:center;
+            line-height:30px;
+            background: #000;
+            color:#fff;
+            cursor:pointer;
+        }
+        .level{
+            width:198px;
+            height:90px;
+            border:1px solid #000;
+            display:none;
+        }
+        .level li{
+            height:30px;
+            line-height:30px;
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
-
+    <ul id="folding">
+        <li class="menu">
+            <h3>管理区</h3>
+            <ul class="level">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+        <li class="menu">
+            <h3>交流区</h3>
+            <ul class="level">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var oFolding = document.getElementById("folding");
+        var aH3 = oFolding.getElementsByTagName("h3");
+        var aUl = oFolding.getElementsByTagName("ul");
+        var aLevel = [];
+        for(var i=0;i<aUl.length;i++){
+            if(aUl[i].className == "level"){
+                aLevel.push();
+            }
+        }
+        for(var i=0;i<aH3.length;i++){
+            aH3[i].index = i;
+            aH3[i].onclick = function(){
+                if(aH3[this.index].style.display == "none" || aH3[this.index].style.display == "" ){
+                    aH3[this.index].style.display = "block";
+                }else{
+                    aH3[this.index].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>

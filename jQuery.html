@@ -3,8 +3,68 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>折叠菜单_jQuery</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        li{
+            list-style:none;
+        }
+        #folding{
+            margin:100px auto;
+            height:248px;
+            width:200px;
+        }
+        h3{
+            width:198px;
+            height:30px;
+            border:1px solid #000;
+            text-align:center;
+            line-height:30px;
+            background: #000;
+            color:#fff;
+            cursor:pointer;
+        }
+        .level{
+            width:198px;
+            height:90px;
+            border:1px solid #000;
+            display:none;
+        }
+        .level li{
+            height:30px;
+            line-height:30px;
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
-
+    <ul id="folding">
+        <li class="menu">
+            <h3>管理区</h3>
+            <ul class="level">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+        <li class="menu">
+            <h3>交流区</h3>
+            <ul class="level">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+    </ul>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            $(".menu h3").on("click",function(){
+                $(this).next().stop(false,true).slideToggle(1000);
+            });
+        });
+    </script>
 </body>
 </html>
